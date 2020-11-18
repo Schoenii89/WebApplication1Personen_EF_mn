@@ -1,0 +1,64 @@
+﻿@model WebApplication1Personen_EF.Models.Personen
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Personen</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vorname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vorname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nachname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nachname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Geburtstag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Geburtstag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAdr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAdr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelNummer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelNummer)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

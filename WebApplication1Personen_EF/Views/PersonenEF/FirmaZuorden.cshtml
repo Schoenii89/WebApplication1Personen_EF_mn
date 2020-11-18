@@ -1,0 +1,92 @@
+﻿@model WebApplication1Personen_EF.Models.Personen
+
+@{
+    ViewBag.Title = "FirmaZuorden";
+}
+
+<h2>FirmaZuorden</h2>
+
+
+@using (Html.BeginForm())
+{
+
+    <input type="hidden" name="personId" value="@Model.Id" />
+    @Html.HiddenFor(Model=>Model.Id)
+
+    <div>
+        <h4>Personen</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Vorname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Vorname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Nachname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nachname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Geburtstag)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Geburtstag)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EmailAdr)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EmailAdr)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TelNummer)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TelNummer)
+            </dd>
+
+            <hr />
+            <dt>
+                Firma auswaehlen
+            </dt>
+
+            @*<dd>
+                @Html.DropDownList("Dropdown", new SelectList(WebApplication1Personen_EF.Controllers.PersonenEFController.firmList, "Id", "Name"))
+            </dd>*@
+
+            @*
+                DropDownListFor ist stark typisiert
+                DDL (Gebundenes Feld, DatenQuelle)
+                DDLF (Model ID, DatenQuelle)
+            *@ 
+
+            <dd>
+                @Html.DropDownListFor(Model => Model.Firma.Id, new SelectList(WebApplication1Personen_EF.Controllers.PersonenEFController.firmList, "Id", "Name"))
+            </dd>
+            <hr />
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+
+        </dl>
+    </div>
+}
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>

@@ -1,0 +1,86 @@
+﻿@model WebApplication1Personen_EF.Models.Personen
+
+@{
+    ViewBag.Title = "FirmaZuordnen";
+}
+
+<h2>FirmaZuordnen</h2>
+
+<div>
+    <h4>Personen</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vorname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vorname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nachname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nachname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Geburtstag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Geburtstag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAdr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAdr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelNummer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelNummer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Geburtsjahr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Geburtsjahr)
+        </dd>
+
+    </dl>
+</div>
+
+<div>
+    @Html.BeginForm()
+
+    <input type="hidden" name="personId" value="@Model.Id" />
+
+    <div>
+
+        @Html.DropDownListFor(Model => Model.FirmenListe,
+       new SelectList(WebApplication1Personen_EF.Controllers.PersonenEFController.firmList, "id", "name"))
+
+        <input type="submit" name="submit" value="submit" />
+
+    </div>
+
+
+
+</div>
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

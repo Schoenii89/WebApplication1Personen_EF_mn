@@ -1,0 +1,49 @@
+﻿@model WebApplication1Personen_EF.Models.Firmen
+
+@{
+    ViewBag.Title = "FirmenDetails";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Firmen</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PLZ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PLZ)
+        </dd>
+
+    </dl>
+</div>
+
+<div>
+    <h3>PersonenListeDerFirma</h3>
+    <table border="0" class="table" width="50%">
+        <tr>
+            <th>vorname</th>
+            <th>nachname</th>
+        </tr>
+        @foreach (WebApplication1Personen_EF.Models.Personen p in Model.PersonenListe)
+        {
+            <tr><td>@p.Vorname</td><td>@p.Nachname</td></tr>
+        }
+    </table>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
